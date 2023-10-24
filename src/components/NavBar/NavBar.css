@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-cente;
+    border-bottom: #c44c4c solid;
+    padding: 1rem;
+    margin: 1rem 1rem;
+}
+
+.navbar img {
+    max-width: 8rem;
+}
+
+.navbar a {
+    font-size: 2.4rem;
+    margin: 0rem 1rem;
+    color: #c44c4c;
+    border: white solid;
+    border-radius: 1.8rem;
+    padding: 0.4rem 0.4rem;
+}
+
+.navbar a:hover {
+    color: brown;
+    border: brown solid;
+}
+
+.navbar .home {
+    margin-left: 5rem;
+}

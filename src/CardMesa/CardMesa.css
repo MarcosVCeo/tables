@@ -1,0 +1,9 @@
+.card-mesa {
+    background-color: brown;
+    padding: 2rem;
+    display: flex;
+}
+
+.card-mesa img {
+    max-width: 32rem;
+}
