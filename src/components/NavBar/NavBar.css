@@ -12,6 +12,7 @@
 }
 
 .navbar a {
+    font-style: italic;
     font-size: 2.4rem;
     margin: 0rem 1rem;
     color: #c44c4c;

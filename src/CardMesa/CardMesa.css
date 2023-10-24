@@ -1,9 +1,52 @@
 .card-mesa {
+    display: flex;
+    flex-direction: column;
     background-color: brown;
-    padding: 2rem;
+    padding: 0rem 2rem 2rem;
+    height: 18rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0rem 2rem 5rem -1rem, rgba(0, 0, 0, 0.3) 0rem 1rem 0.8rem -0.4rem;
+    border-radius: 0.8rem;
+    transition: transform 0.3s;
+    align-items: center;
+}
+
+.card-mesa:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.card-title {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.card-mesa_infos {
     display: flex;
 }
 
 .card-mesa img {
-    max-width: 32rem;
+    max-width: 24rem;
+    max-height: 12rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0rem 30rem 60rem -12rem inset, rgba(0, 0, 0, 0.3) 0rem 18rem 36rem -18rem inset;
+    border-radius: 0.4rem;
+}
+
+.card-image {
+    display: flex;
+    align-items: center;
+}
+
+.card-mesa .informacoes-mesa {
+    padding-left: 2rem;
+    max-height: 12rem;
+}
+
+.card-mesa .descricao {
+    height: 8rem;
+    max-height: 8rem;
+    overflow: hidden;
+}
+
+.card-mesa .mestre {
+    margin-bottom: 0;
+    font-weight: 700;
 }

@@ -1,3 +1,8 @@
+:root {
+  --font-family: 'Nunito';
+  --primary-color: #007bff;
+}
+
 .App {
   text-align: center;
 }
