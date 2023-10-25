@@ -8,7 +8,7 @@ export function useTheme() {
 
 export function ThemeProvider({ children }) {
 
-    const [fontePrimaria, setFontePrimaria] = useState('Nunito')
+    const [fontePrimaria, setFontePrimaria] = useState('PAPYROS')
 
     const valores = {
         fontePrimaria,

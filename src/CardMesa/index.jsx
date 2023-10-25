@@ -1,4 +1,4 @@
-import { useTheme } from '../ThemeContext/ThemeContext'
+import { useTheme } from '../../ThemeContext/ThemeContext'
 import './CardMesa.css'
 
 const CardMesa = ({ mesa }) => {

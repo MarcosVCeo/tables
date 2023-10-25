@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Home';
 import Mesas from './pages/Mesas';
+import Mesa from './pages/Mesa'
 import { ThemeProvider } from './ThemeContext/ThemeContext';
 
 const router = createBrowserRouter([
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "mesas",
     element: <Mesas />
+  },
+  {
+    path: "mesa",
+    element: <Mesa />
   }
 ])
 
