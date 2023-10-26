@@ -6,7 +6,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Home';
 import Mesas from './pages/Mesas';
 import Mesa from './pages/Mesa'
-import { ThemeProvider } from './ThemeContext/ThemeContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import { MesaProvider } from './contexts/MesaContext';
 
 const router = createBrowserRouter([
   {
@@ -25,11 +26,13 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </ThemeProvider>
+  <MesaProvider>
+    <ThemeProvider>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </ThemeProvider>
+  </MesaProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,4 +1,4 @@
-import { useTheme } from '../../ThemeContext/ThemeContext';
+import { useTheme } from '../../contexts/ThemeContext';
 import './NavBar.css'
 
 const NavBar = () => {
