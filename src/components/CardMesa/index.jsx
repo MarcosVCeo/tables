@@ -5,7 +5,7 @@ const CardMesa = ({ mesa }) => {
 
     const { fontePrimaria } = useTheme()
 
-    const urlLinkMesa = `/mesa?id=${mesa.id}`
+    const urlLinkMesa = `/mesa/${mesa.id}`
 
     return (
         <a className='card-mesa' href={urlLinkMesa}>

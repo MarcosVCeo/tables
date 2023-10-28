@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './Home';
-import Mesas from './pages/Mesas';
-import Mesa from './pages/Mesa'
-import { ThemeProvider } from './contexts/ThemeContext';
 import { MesaProvider } from './contexts/MesaContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+import Home from './Home';
+import './index.css';
+import Mesa from './pages/Mesa';
+import Mesas from './pages/Mesas';
+import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Mesas />
   },
   {
-    path: "mesa",
+    path: "/mesa/:mesaId",
     element: <Mesa />
   }
 ])

@@ -1,35 +1,36 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import NavBar from '../../components/NavBar'
 import { useMesa } from '../../contexts/MesaContext'
 import './Mesa.css'
 
-export default function Mesa() {
+export default function Mesa({ mesa }) {
 
-    const mesa = useMesa()
+    const { mesaId } = useParams()
+    const mesaContext = useMesa()
     const [socket, setSocket] = useState(null)
     const [mensagens, setMensagens] = useState([])
     const [mensagemDigitada, setMensagemDigitada] = useState('')
-    const User = "Marcos"
+    const username = "Marcos"
     useEffect(() => {
-        setSocket(mesa.conectarAoSocket())
+        setSocket(mesaContext.conectarAoSocket(mesaId, username))
 
-        axios
-            .get('http://localhost:8080/mensagens')
-            .then(response => { setMensagens(response.data) })
-            .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
+        // axios
+        //     .get('http://localhost:8080/mensagens')
+        //     .then(response => { setMensagens(response.data) })
+        //     .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
     }, [])
 
-    const onChangeTextAreaHandler = event => { setMensagemDigitada({ usuario: User, mensagem: event.target.value }); };
-    const onSubmitHandler = () => socket.emit('enviar_mensagem', mensagemDigitada)
+    const onChangeTextAreaHandler = event => { setMensagemDigitada({ usuario: username, mensagem: event.target.value, mesa: mesaId }); };
+    const onSubmitHandler = () => { socket.emit('enviar_mensagem', mensagemDigitada) }
 
     if (socket) {
-        socket.on('receber_mensagem', mensagem => setMensagens([...mensagens, mensagem]))
+        socket.on('receber_mensagem', mensagem => { setMensagens([...mensagens, mensagem]) })
     }
 
 
     return (
-        
+
         <div>
             <NavBar />
             <div className='chat'>
