@@ -8,7 +8,7 @@ const NavBar = () => {
     return (
         <div>
             <nav className='navbar'>
-                <a href='/'><img src='images/logo.png' ></img></a>
+                <a href='/'><img src='/images/logo.png' ></img></a>
                 <a style={{ fontFamily: fontePrimaria }} className="home" href='/'>Home</a>
                 <a style={{ fontFamily: fontePrimaria }} href="/mesas">Mesas</a>
                 <a style={{ fontFamily: fontePrimaria }}>Alguma coisa</a>
