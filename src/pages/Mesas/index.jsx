@@ -6,6 +6,7 @@ import './Mesas.css'
 
 const Mesas = () => {
 
+    const [teste, setTeste] = useState('')
     const [mesas, setMesas] = useState([
         {
             id: 1,
@@ -25,9 +26,9 @@ const Mesas = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8080/mesas')
-            .then(response => { setMesas(response.data) })
-            .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
+        .get('http://localhost/mesas')
+        .then(response => { setMesas(response.data) })
+        .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
     }, [])
 
 

@@ -28,7 +28,6 @@ export default function Mesa({ mesa }) {
         socket.on('receber_mensagem', mensagem => { setMensagens([...mensagens, mensagem]) })
     }
 
-
     return (
 
         <div>
