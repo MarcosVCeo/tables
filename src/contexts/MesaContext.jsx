@@ -10,7 +10,7 @@ export function useMesa() {
 export function MesaProvider({ children }) {
 
     function conectarAoSocket(mesaId, username) {
-        const socket = io(`ws://localhost/?mesa=${mesaId}&username=${username}`)
+        const socket = io(`ws://localhost/?roomId=${mesaId}&username=${username}`)
 
         return socket
     }

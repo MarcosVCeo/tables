@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NavBar from '../../components/NavBar'
@@ -15,17 +16,24 @@ export default function Mesa({ mesa }) {
     useEffect(() => {
         setSocket(mesaContext.conectarAoSocket(mesaId, username))
 
-        // axios
-        //     .get('http://localhost:8080/mensagens')
-        //     .then(response => { setMensagens(response.data) })
-        //     .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
+        axios
+            .get(`http://localhost/messages?roomId=${mesaId}`)
+            .then(response => { setMensagens(response.data.content) })
+            .catch(error => { console.log('Erro ao buscar os dados da API: ', error) })
     }, [])
 
-    const onChangeTextAreaHandler = event => { setMensagemDigitada({ usuario: username, mensagem: event.target.value, mesa: mesaId }); };
-    const onSubmitHandler = () => { socket.emit('enviar_mensagem', mensagemDigitada) }
+    const onChangeTextAreaHandler = event => {
+        setMensagemDigitada({ senderUsername: username, textMessage: event.target.value, roomId: mesaId });
+    };
+
+    const onSubmitHandler = () => {
+        socket.emit('enviar_mensagem', mensagemDigitada)
+    }
 
     if (socket) {
-        socket.on('receber_mensagem', mensagem => { setMensagens([...mensagens, mensagem]) })
+        socket.on('receber_mensagem', mensagem => {
+            setMensagens([...mensagens, mensagem])
+        })
     }
 
     return (
@@ -37,7 +45,7 @@ export default function Mesa({ mesa }) {
                     {
                         mensagens.map((mensagem, i) => (
                             <p className='chat__mensagens__mensagem' key={i}>
-                                <strong>{mensagem.usuario}:</strong>{mensagem.mensagem}
+                                <strong>{mensagem.senderUsername}:</strong>{mensagem.textMessage}
                             </p>
                         ))
                     }
